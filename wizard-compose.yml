@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  heimdall:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    volumes:
+      - /home/user/appdata/wireguard:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
